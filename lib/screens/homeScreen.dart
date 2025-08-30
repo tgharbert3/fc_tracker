@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../classes/colors.dart';
 import './addAuditScreen.dart';
+import './viewAuditScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -70,7 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.all(32.0),
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ViewAuditScreen()),
+                  ),
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.walmartYellow,
                   foregroundColor: AppColors.walmartBlue,
