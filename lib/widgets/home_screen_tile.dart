@@ -1,4 +1,5 @@
 import 'package:fc_tracker/screens/add_water_audit_screen.dart';
+import '../screens/add_dairy_audit_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenTile extends StatelessWidget {
@@ -32,6 +33,14 @@ class HomeScreenTile extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => AddAuditScreen(),
+                        ),
+                      ),
+                    },
+                  if (type == "Dairy")
+                    {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => AddDairyAuditScreen(),
                         ),
                       ),
                     },
