@@ -1,7 +1,12 @@
 import 'package:fc_tracker/screens/homeScreen.dart';
-// import 'package:fc_tracker/screens/login_screen.dart';
+import './classes/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: HomeScreen()));
+  runApp(
+    MaterialApp(
+      home: HomeScreen(),
+      theme: ThemeData(colorScheme: AppColors.customScheme),
+    ),
+  );
 }

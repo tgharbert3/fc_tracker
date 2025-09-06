@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../classes/colors.dart';
-import './addAuditScreen.dart';
+import 'add_water_audit_screen.dart';
 import './viewAuditScreen.dart';
+import '../classes/audit_types.dart';
+import '../widgets/home_screen_tile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,82 +16,26 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: AppColors.walmartBlue),
-      body: Container(
-        color: AppColors.walmartBlue,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Food & Consumables",
-                  style: TextStyle(
-                    color: AppColors.walmartYellow,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 32, 0, 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Store 3825",
-                    style: TextStyle(
-                      color: AppColors.walmartYellow,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () => {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AddAuditScreen()),
-                ),
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.walmartYellow,
-                foregroundColor: AppColors.walmartBlue,
-              ),
-              child: Text(
-                "Add Water Audit",
-                style: TextStyle(
-                  color: AppColors.walmartBlue,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: ElevatedButton(
-                onPressed: () => {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ViewAuditScreen()),
-                  ),
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.walmartYellow,
-                  foregroundColor: AppColors.walmartBlue,
-                ),
-                child: Text(
-                  "View Past Audits",
-                  style: TextStyle(
-                    color: AppColors.walmartBlue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ],
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          "Food & Consumables",
+          style: TextStyle(
+            color: AppColors.walmartYellow,
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.none,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.separated(
+          itemCount: AuditTypes.types.length,
+          itemBuilder: (context, index) {
+            return HomeScreenTile(type: AuditTypes.types[index]);
+          },
+          separatorBuilder: (context, index) => const SizedBox(height: 10),
         ),
       ),
     );
