@@ -25,39 +25,37 @@ class _AddAuditScreenState extends State<AddAuditScreen> {
           ),
         ),
       ),
-      body: Container(
-        color: AppColors.walmartBlue,
-        child: Column(
-          children: [
-            Text(
-              "Week: ",
-              style: TextStyle(color: AppColors.walmartYellow, fontSize: 24),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: waterData.waterTypes.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      onTap: () => {
-                        debugPrint("Tapped on ${waterData.waterTypes[index]}"),
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => CountScreen(
-                              screenTitle: waterData.waterTypes[index],
-                            ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text("Week: ", style: TextStyle(fontSize: 24)),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: waterData.waterTypes.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    onTap: () => {
+                      debugPrint("Tapped on ${waterData.waterTypes[index]}"),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CountScreen(
+                            screenTitle: waterData.waterTypes[index],
                           ),
                         ),
-                      },
-                      title: Text(waterData.waterTypes[index]),
-                      trailing: Text("On hand | In system"),
-                    ),
-                  );
-                },
-              ),
+                      ),
+                    },
+                    title: Text(waterData.waterTypes[index]),
+                    trailing: Text("On hand | In system"),
+                  ),
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:fc_tracker/screens/homeScreen.dart';
+import 'package:fc_tracker/screens/home_screen.dart';
 import './classes/colors.dart';
 import 'package:flutter/material.dart';
 

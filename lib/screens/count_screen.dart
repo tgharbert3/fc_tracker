@@ -25,26 +25,23 @@ class _CountScreenState extends State<CountScreen> {
         ),
         backgroundColor: AppColors.walmartBlue,
       ),
-      body: Container(
-        color: AppColors.walmartBlue,
-        child: Column(
-          children: [
-            // TextField(decoration: const InputDecoration(hintText: "Add Count")),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () => {},
-                  child: Text("Add Full Pallet"),
-                ),
-                ElevatedButton(
-                  onPressed: () => {},
-                  child: Text("Complete Count"),
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          // TextField(decoration: const InputDecoration(hintText: "Add Count")),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => {},
+                child: Text("Add Full Pallet"),
+              ),
+              ElevatedButton(
+                onPressed: () => {},
+                child: Text("Complete Count"),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

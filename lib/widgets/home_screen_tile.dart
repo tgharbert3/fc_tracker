@@ -1,5 +1,7 @@
 import 'package:fc_tracker/screens/add_water_audit_screen.dart';
 import '../screens/add_dairy_audit_screen.dart';
+import '../screens/view_water_audit_screen.dart';
+import '../screens/view_dairy_audit_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenTile extends StatelessWidget {
@@ -47,7 +49,27 @@ class HomeScreenTile extends StatelessWidget {
                 },
                 child: Text("Add Audit"),
               ),
-              ElevatedButton(onPressed: () => {}, child: Text("View Audit")),
+              ElevatedButton(
+                onPressed: () => {
+                  if (type == 'Water')
+                    {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ViewWaterAuditScreen(),
+                        ),
+                      ),
+                    },
+                  if (type == "Dairy")
+                    {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ViewDairyAuditScreen(),
+                        ),
+                      ),
+                    },
+                },
+                child: Text("View Audit"),
+              ),
             ],
           ),
         ],
